@@ -23,7 +23,7 @@ defined('ABSPATH') || exit;
  * Requires at least: 5.0
  * Tested up to: 6.4.3
  * Requires PHP: 8.1
-*/
+ */
 
 // Autoload
 require_once __DIR__ . '/vendor/autoload.php';
@@ -42,10 +42,12 @@ Helpers::registerLiteModel(BeycanPress\CryptoPay\FluentForms\Models\Transactions
 
 load_plugin_textdomain('fluent_forms-cryptopay', false, basename(__DIR__) . '/languages');
 
-if (!defined('GF_MIN_WP_VERSION') /* TODO: check the plugin */) {
-    Helpers::requirePluginMessage('Fluent Forms', 'https://wordpress.org/plugins/fluentform/');
-} elseif (Helpers::bothExists()) {
-    new BeycanPress\CryptoPay\FluentForms\Loader();
-} else {
-    Helpers::requireCryptoPayMessage('Fluent Forms');
-}
+add_action('plugins_loaded', function (): void {
+    if (!defined('FLUENTFORM')) {
+        Helpers::requirePluginMessage('Fluent Forms', 'https://wordpress.org/plugins/fluentform/');
+    } elseif (Helpers::bothExists()) {
+        new BeycanPress\CryptoPay\FluentForms\Loader();
+    } else {
+        Helpers::requireCryptoPayMessage('Fluent Forms');
+    }
+});
