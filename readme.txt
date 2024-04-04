@@ -44,8 +44,8 @@ You can easily translate with Loco translate.
 
 == Installation ==
 
-1. Upload the entire `/fluent_forms-cryptopay-gateway` directory to the `/wp-content/plugins/` directory.
-2. Activate Fluent Forms - CryptoPay Gateway through the 'Plugins' menu in WordPress.
+1. Upload the entire `/cryptopay-gateway-for-fluent-forms` directory to the `/wp-content/plugins/` directory.
+2. Activate CryptoPay Gateway for Fluent Forms through the 'Plugins' menu in WordPress.
 3. Enjoy.
 
 == Changelog ==

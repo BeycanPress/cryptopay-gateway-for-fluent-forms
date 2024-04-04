@@ -5,7 +5,7 @@
             '{name}',
             esc_html($currentPlugin),
             sprintf(
-                esc_html__('{name} - CryptoPay Gateway: This plugin requires {name} to work. You can %s {name} by %s.', 'arm-cryptopay'),
+                esc_html__('CryptoPay Gateway for {name}: This plugin requires {name} to work. You can %s {name} by %s.', 'arm-cryptopay'),
                 $download ? esc_html__('download', 'cryptopay') : esc_html__('buy', 'cryptopay'),
                 sprintf(
                     '<a href="%s" target="_blank">' . esc_html__('clicking here', 'cryptopay') . '</a>',
