@@ -26,6 +26,7 @@ class Loader
                 'orderId' => function ($tx) {
                     return Helpers::run('view', 'components/link', [
                         'url' => sprintf(admin_url('admin.php?page=fluent_forms&route=entries&form_id=%d#/entries/%d'), $tx->params->formId, $tx->orderId), // @phpcs:ignore
+                        /* translators: %d: transaction id */
                         'text' => sprintf(esc_html__('View entry #%d', 'gf-cryptopay'), $tx->orderId)
                     ]);
                 }
@@ -62,6 +63,7 @@ class Loader
             'source_id'        => $submissionId,
             'component'        => 'Payment',
             'status'           => 'info',
+            /* translators: %s: Payment status */
             'title'            => sprintf(__('%s - Payment %s', 'fluent_forms-cryptopay'), $name, $data->getStatus() ? 'completed' : 'failed'), // @phpcs:ignore
             'description'      => sprintf(
                 __('Payment %s', 'fluent_forms-cryptopay'),
@@ -74,6 +76,7 @@ class Loader
             'status' => $data->getStatus(),
             'hash' => $data->getHash(),
             'paymentNote' => sprintf(
+                /* translators: %s: Payment currency symbol */
                 esc_html__('Paid with %s', 'fluent_forms-cryptopay'),
                 $data->getOrder()->getPaymentCurrency()->getSymbol()
             )

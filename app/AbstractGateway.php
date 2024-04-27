@@ -71,6 +71,7 @@ abstract class AbstractGateway extends BasePaymentMethod
                 'option_label' => [
                     'type' => 'text',
                     'template' => 'inputText',
+                    /* translators: %s: Payment method name */
                     'value' => sprintf(esc_html__('Pay with %s', 'fluent_forms-cryptopay'), $this->name),
                     'label' => $this->name
                 ]
@@ -104,6 +105,7 @@ abstract class AbstractGateway extends BasePaymentMethod
                     'type' => 'yes-no-checkbox',
                     'settings_key' => 'is_active',
                     'label' => esc_html__('Status', 'fluent_forms-cryptopay'),
+                    /* translators: %s: Payment method name */
                     'checkbox_label' => sprintf(esc_html__('Enable %s', 'fluent_forms-cryptopay'), $this->name),
                 ]
             ]

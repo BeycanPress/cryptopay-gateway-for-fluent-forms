@@ -133,6 +133,7 @@ final class Processor extends BaseProcessor
             'source_id'        => $submission->id,
             'component'        => 'Payment',
             'status'           => 'info',
+            /* translators: %s: Payment method name */
             'title'            => sprintf(__('%s - Payment Link Created', 'fluent_forms-cryptopay'), $this->name),
             'description'      => __('Payment link created and user redirected', 'fluent_forms-cryptopay')
         ]);
