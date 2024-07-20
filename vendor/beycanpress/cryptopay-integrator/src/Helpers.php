@@ -37,7 +37,7 @@ class Helpers
      */
     public static function liteExists(): bool
     {
-        return class_exists(LiteLoader::class);
+        return defined('CRYPTOPAY_LITE_LOADED');
     }
 
     /**
@@ -45,7 +45,7 @@ class Helpers
      */
     public static function exists(): bool
     {
-        return class_exists(Loader::class);
+        return defined('CRYPTOPAY_LOADED');
     }
 
     /**

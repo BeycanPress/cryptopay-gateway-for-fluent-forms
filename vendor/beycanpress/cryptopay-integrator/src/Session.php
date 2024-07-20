@@ -11,7 +11,7 @@ class Session
      */
     public static function start(): void
     {
-        if (PHP_SESSION_NONE === session_status()) {
+        if (PHP_SESSION_NONE === session_status() && !headers_sent()) {
             session_start();
         }
     }

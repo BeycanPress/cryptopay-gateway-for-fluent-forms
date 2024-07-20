@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "77536fbde0f65dd1f19f2539c97b5117",
+    "content-hash": "45794a4a0965ae35de009e1a0f9df7ea",
     "packages": [
         {
             "name": "beycanpress/cryptopay-integrator",
-            "version": "0.1.11",
+            "version": "0.1.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/BeycanPress/cryptopay-integrator.git",
-                "reference": "cd50c21a0daf9bbcc5b86a292d620b74b47aa73e"
+                "reference": "b981bcc7cf021d653acd938d817b51f1cbb27d4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/BeycanPress/cryptopay-integrator/zipball/cd50c21a0daf9bbcc5b86a292d620b74b47aa73e",
-                "reference": "cd50c21a0daf9bbcc5b86a292d620b74b47aa73e",
+                "url": "https://api.github.com/repos/BeycanPress/cryptopay-integrator/zipball/b981bcc7cf021d653acd938d817b51f1cbb27d4f",
+                "reference": "b981bcc7cf021d653acd938d817b51f1cbb27d4f",
                 "shasum": ""
             },
             "require": {
@@ -37,9 +37,9 @@
             "homepage": "https://github.com/BeycanPress/cryptopay-integrator",
             "support": {
                 "issues": "https://github.com/BeycanPress/cryptopay-integrator/issues",
-                "source": "https://github.com/BeycanPress/cryptopay-integrator/tree/0.1.11"
+                "source": "https://github.com/BeycanPress/cryptopay-integrator/tree/0.1.13"
             },
-            "time": "2024-04-04T08:02:22+00:00"
+            "time": "2024-07-20T03:27:42+00:00"
         }
     ],
     "packages-dev": [],

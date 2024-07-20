@@ -1,6 +1,6 @@
 {
     "name": "beycanpress/cryptopay-integrator",
-    "version": "0.1.11",
+    "version": "0.1.13",
     "description": "CryptoPay and CryptoPay Lite integration wrapper",
     "type": "library",
     "license": "MIT",

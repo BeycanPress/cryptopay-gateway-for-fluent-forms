@@ -10,6 +10,6 @@
         }
     },
     "require": {
-        "beycanpress/cryptopay-integrator": "^0.1.11"
+        "beycanpress/cryptopay-integrator": "^0.1.13"
     }
 }

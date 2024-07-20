@@ -43,7 +43,17 @@ class Loader
 
         add_action('init', [Helpers::class, 'listenSPP']);
         Hook::addFilter('payment_finished', [$this, 'paymentFinished']);
+        Hook::addFilter('edit_config_data_fluent_forms', [$this, 'disableReminderEmail']);
         Hook::addFilter('payment_redirect_urls_fluent_forms', [$this, 'paymentRedirectUrls']);
+    }
+
+    /**
+     * @param object $data
+     * @return object
+     */
+    public function disableReminderEmail(object $data): object
+    {
+        return $data->disableReminderEmail();
     }
 
     /**
