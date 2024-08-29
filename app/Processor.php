@@ -11,6 +11,7 @@ use BeycanPress\CryptoPay\Helpers as ProHelpers;
 use BeycanPress\CryptoPayLite\Helpers as LiteHelpers;
 use FluentFormPro\Payments\PaymentHelper;
 use FluentFormPro\Payments\PaymentMethods\BaseProcessor;
+use FluentForm\App\Services\Form\SubmissionHandlerService;
 
 final class Processor extends BaseProcessor
 {
@@ -27,19 +28,19 @@ final class Processor extends BaseProcessor
     protected $method;
 
     /**
-     * @var string
+     * @var mixed
      */
     // phpcs:ignore
     protected $form = null;
 
     /**
-     * @var string
+     * @var mixed
      */
     // phpcs:ignore
     protected $submission = null;
 
     /**
-     * @var string
+     * @var int
      */
     // phpcs:ignore
     protected $submissionId = null;
@@ -180,6 +181,9 @@ final class Processor extends BaseProcessor
         $submissionId = intval($data['fluentform_payment']);
         $this->setSubmissionId($submissionId);
 
+        $this->form = $this->getForm();
+        $this->submission = $this->getSubmission();
+
         $token = sanitize_text_field($data['token'] ?? '');
 
         if (!Session::has($token) || !Session::has('fluent_forms_payment')) {
@@ -246,7 +250,11 @@ final class Processor extends BaseProcessor
 
         $this->setMetaData('is_form_action_fired', 'yes');
 
-        return $this->getReturnData();
+        return (new SubmissionHandlerService())->processSubmissionData(
+            $this->getSubmissionId(),
+            $this->submission->response,
+            $this->form
+        );
     }
 
     /**
