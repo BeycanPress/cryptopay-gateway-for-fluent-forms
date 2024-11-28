@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
 
 /**
  * Plugin Name: CryptoPay Gateway for Fluent Forms
- * Version:     1.0.0
+ * Version:     1.0.1
  * Plugin URI:  https://beycanpress.com/cryptopay/
  * Description: Adds Cryptocurrency payment gateway (CryptoPay) for Fluent Forms.
  * Author:      BeycanPress LLC
@@ -21,7 +21,7 @@ defined('ABSPATH') || exit;
  * Text Domain: fluent_forms-cryptopay
  * Tags: Bitcoin, Ethereum, Crypto, Payment, Fluent Forms
  * Requires at least: 5.0
- * Tested up to: 6.6
+ * Tested up to: 6.7.1
  * Requires PHP: 8.1
  */
 
@@ -29,7 +29,7 @@ defined('ABSPATH') || exit;
 require_once __DIR__ . '/vendor/autoload.php';
 
 define('FLUENT_FORMS_CRYPTOPAY_FILE', __FILE__);
-define('FLUENT_FORMS_CRYPTOPAY_VERSION', '1.0.0');
+define('FLUENT_FORMS_CRYPTOPAY_VERSION', '1.0.1');
 define('FLUENT_FORMS_CRYPTOPAY_KEY', basename(__DIR__));
 define('FLUENT_FORMS_CRYPTOPAY_URL', plugin_dir_url(__FILE__));
 define('FLUENT_FORMS_CRYPTOPAY_DIR', plugin_dir_path(__FILE__));
@@ -48,11 +48,14 @@ function registerCryptoPayFluentFormModels(): void
 }
 
 registerCryptoPayFluentFormModels();
-load_plugin_textdomain('fluent_forms-cryptopay', false, basename(__DIR__) . '/languages');
+
+add_action('init', function (): void {
+    load_plugin_textdomain('fluent_forms-cryptopay', false, basename(__DIR__) . '/languages');
+});
 
 add_action('plugins_loaded', function (): void {
     if (!defined('FLUENTFORM')) {
-        Helpers::requirePluginMessage('Fluent Forms', 'https://wordpress.org/plugins/fluentform/');
+        Helpers::requirePluginMessage('Fluent Forms', admin_url('plugin-install.php?s=Fluent%2520forms&tab=search&type=term'));
     } elseif (Helpers::bothExists()) {
         registerCryptoPayFluentFormModels();
         new BeycanPress\CryptoPay\FluentForms\Loader();
