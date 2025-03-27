@@ -15,36 +15,43 @@ class Loader
      */
     public function __construct()
     {
-        Helpers::registerIntegration('fluent_forms');
+        if (class_exists('FluentFormPro\Payments\PaymentMethods\BasePaymentMethod')) {
+            Helpers::registerIntegration('fluent_forms');
 
-        // add transaction page
-        Helpers::createTransactionPage(
-            esc_html__('Fluent Forms Transactions', 'fluent_forms-cryptopay'),
-            'fluent_forms',
-            10,
-            [
-                'orderId' => function ($tx) {
-                    return Helpers::run('view', 'components/link', [
-                        'url' => sprintf(admin_url('admin.php?page=fluent_forms&route=entries&form_id=%d#/entries/%d'), $tx->params->formId, $tx->orderId), // @phpcs:ignore
-                        /* translators: %d: transaction id */
-                        'text' => sprintf(esc_html__('View entry #%d', 'gf-cryptopay'), $tx->orderId)
-                    ]);
-                }
-            ]
-        );
+            // add transaction page
+            Helpers::createTransactionPage(
+                esc_html__('Fluent Forms Transactions', 'cryptopay-gateway-for-fluent-forms'),
+                'fluent_forms',
+                10,
+                [
+                    'orderId' => function ($tx) {
+                        return Helpers::run('view', 'components/link', [
+                            'url' => sprintf(admin_url('admin.php?page=fluent_forms&route=entries&form_id=%d#/entries/%d'), $tx->params->formId, $tx->orderId), // @phpcs:ignore
+                            'text' => sprintf(
+                                /* translators: %d: transaction id */
+                                esc_html__('View entry #%d', 'cryptopay-gateway-for-fluent-forms'),
+                                $tx->orderId
+                            )
+                        ]);
+                    }
+                ]
+            );
 
-        if (Helpers::exists()) {
-            (new ProGateway())->init();
+            if (Helpers::exists()) {
+                (new ProGateway())->init();
+            }
+
+            if (Helpers::liteExists()) {
+                (new LiteGateway())->init();
+            }
+
+            add_action('init', [Helpers::class, 'listenSPP']);
+            Hook::addFilter('payment_finished', [$this, 'paymentFinished']);
+            Hook::addFilter('edit_config_data_fluent_forms', [$this, 'disableReminderEmail']);
+            Hook::addFilter('payment_redirect_urls_fluent_forms', [$this, 'paymentRedirectUrls']);
+        } else {
+            Helpers::requirePluginMessage('Fluent Forms Pro', 'https://fluentforms.com/');
         }
-
-        if (Helpers::liteExists()) {
-            (new LiteGateway())->init();
-        }
-
-        add_action('init', [Helpers::class, 'listenSPP']);
-        Hook::addFilter('payment_finished', [$this, 'paymentFinished']);
-        Hook::addFilter('edit_config_data_fluent_forms', [$this, 'disableReminderEmail']);
-        Hook::addFilter('payment_redirect_urls_fluent_forms', [$this, 'paymentRedirectUrls']);
     }
 
     /**
@@ -74,9 +81,10 @@ class Loader
             'component'        => 'Payment',
             'status'           => 'info',
             /* translators: %s: Payment status */
-            'title'            => sprintf(__('%s - Payment %s', 'fluent_forms-cryptopay'), $name, $data->getStatus() ? 'completed' : 'failed'), // @phpcs:ignore
+            'title'            => sprintf(__('%s - Payment %s', 'cryptopay-gateway-for-fluent-forms'), $name, $data->getStatus() ? 'completed' : 'failed'), // @phpcs:ignore
             'description'      => sprintf(
-                __('Payment %s', 'fluent_forms-cryptopay'),
+                /* translators: %s: Payment status */
+                __('Payment %s', 'cryptopay-gateway-for-fluent-forms'),
                 $data->getStatus() ? 'completed' : 'failed'
             )
         ]);
@@ -87,7 +95,7 @@ class Loader
             'hash' => $data->getHash(),
             'paymentNote' => sprintf(
                 /* translators: %s: Payment currency symbol */
-                esc_html__('Paid with %s', 'fluent_forms-cryptopay'),
+                esc_html__('Paid with %s', 'cryptopay-gateway-for-fluent-forms'),
                 $data->getOrder()->getPaymentCurrency()->getSymbol()
             )
         ]);

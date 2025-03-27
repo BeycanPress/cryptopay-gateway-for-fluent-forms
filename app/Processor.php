@@ -135,8 +135,8 @@ final class Processor extends BaseProcessor
             'component'        => 'Payment',
             'status'           => 'info',
             /* translators: %s: Payment method name */
-            'title'            => sprintf(__('%s - Payment Link Created', 'fluent_forms-cryptopay'), $this->name),
-            'description'      => __('Payment link created and user redirected', 'fluent_forms-cryptopay')
+            'title'            => sprintf(__('%s - Payment Link Created', 'cryptopay-gateway-for-fluent-forms'), $this->name),
+            'description'      => __('Payment link created and user redirected', 'cryptopay-gateway-for-fluent-forms')
         ]);
 
         $paymentPageLink = Helpers::createSPP([
@@ -164,7 +164,7 @@ final class Processor extends BaseProcessor
             'nextAction'   => 'payment',
             'actionName'   => 'normalRedirect',
             'redirect_url' => $paymentPageLink,
-            'message'      => __('Redirecting to payment page...', 'fluent_forms-cryptopay'),
+            'message'      => __('Redirecting to payment page...', 'cryptopay-gateway-for-fluent-forms'),
             'result'       => [
                 'insert_id' => $submission->id
             ]
@@ -190,8 +190,8 @@ final class Processor extends BaseProcessor
             $this->showPaymentView([
                 'type' => 'failed',
                 'is_new' => false,
-                'title' => __('Payment Argument Problems!', 'fluent_forms-cryptopay'),
-                'error' => __('Payment token not found!', 'fluent_forms-cryptopay')
+                'title' => __('Payment Argument Problems!', 'cryptopay-gateway-for-fluent-forms'),
+                'error' => __('Payment token not found!', 'cryptopay-gateway-for-fluent-forms')
             ]);
             return;
         }
@@ -218,7 +218,7 @@ final class Processor extends BaseProcessor
         $returnData['type'] = ($isSuccess) ? 'success' : 'failed';
 
         if (!$isSuccess) {
-            $returnData['error'] = esc_html__('Unfortunately, the payment could not be verified, but your form has been submitted anyway. Please contact us if you think the process is faulty!', 'fluent_forms-cryptopay'); // phpcs:ignore
+            $returnData['error'] = esc_html__('Unfortunately, the payment could not be verified, but your form has been submitted anyway. Please contact us if you think the process is faulty!', 'cryptopay-gateway-for-fluent-forms'); // phpcs:ignore
         }
 
         if (!isset($returnData['is_new'])) {

@@ -10,7 +10,7 @@ defined('ABSPATH') || exit;
 // @phpcs:disable Generic.Files.LineLength
 
 /**
- * Plugin Name: CryptoPay Gateway for Fluent Forms
+ * Plugin Name: CryptoPay Gateway for Fluent Forms Pro
  * Version:     1.0.1
  * Plugin URI:  https://beycanpress.com/cryptopay/
  * Description: Adds Cryptocurrency payment gateway (CryptoPay) for Fluent Forms.
@@ -18,7 +18,7 @@ defined('ABSPATH') || exit;
  * Author URI:  https://beycanpress.com
  * License:     GPLv3
  * License URI: https://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain: fluent_forms-cryptopay
+ * Text Domain: cryptopay-gateway-for-fluent-forms
  * Tags: Bitcoin, Ethereum, Crypto, Payment, Fluent Forms
  * Requires at least: 5.0
  * Tested up to: 6.7.1
@@ -48,10 +48,6 @@ function registerCryptoPayFluentFormModels(): void
 }
 
 registerCryptoPayFluentFormModels();
-
-add_action('init', function (): void {
-    load_plugin_textdomain('fluent_forms-cryptopay', false, basename(__DIR__) . '/languages');
-});
 
 add_action('plugins_loaded', function (): void {
     if (!defined('FLUENTFORM')) {
