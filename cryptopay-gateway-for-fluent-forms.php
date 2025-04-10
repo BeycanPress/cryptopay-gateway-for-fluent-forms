@@ -21,7 +21,7 @@ defined('ABSPATH') || exit;
  * Text Domain: cryptopay-gateway-for-fluent-forms
  * Tags: Bitcoin, Ethereum, Crypto, Payment, Fluent Forms
  * Requires at least: 5.0
- * Tested up to: 6.7.1
+ * Tested up to: 6.7
  * Requires PHP: 8.1
  */
 

@@ -2,7 +2,7 @@
 Contributors: BeycanPress
 Tags: Bitcoin, Ethereum, Crypto, Payment, Fluent Forms
 Requires at least: 5.0
-Tested up to: 6.7.1
+Tested up to: 6.7
 Requires PHP: 8.1
 Stable Tag: 1.0.1
 Version: 1.0.1
@@ -15,20 +15,25 @@ Cryptocurrency Payment Gateway Plugin for Fluent Forms, Cryptocurrency payments 
 
 ### Cryptocurrency Payment Gateway Plugin for Fluent Forms by CryptoPay
 
-First of all, we would like to point out that this plugin is not a standalone plugin. This plugin is a **<a href="https://beycanpress.com/cryptopay/?utm_source=wporg_readme&utm_medium=cryptopay_fluent_forms">cryptocurrency payment gateway for Fluent Forms</a>**. In other words, users who want to sell courses with cryptocurrency payments can use WordPress and Fluent Forms. However, this plugin is a plugin for CryptoPay and a cryptocurrency payment gateway for Fluent Forms. So it's actually CryptoPay, which is the main plugin that handles cryptocurrency payments for WordPress. Therefore, users must have both plugins.
+As blockchain technology and cryptocurrency adoption continue to grow, businesses, freelancers, and content creators are increasingly seeking seamless ways to accept digital currency payments. With the CryptoPay plugin, you can easily accept cryptocurrency payments through Fluent Forms on your WordPress site—without relying on third-party payment gateways or paying transaction fees.
 
-Thanks to this plugin, you can receive **<a href="https://beycanpress.com/cryptopay/?utm_source=wporg_readme&utm_medium=cryptopay_fluent_forms">cryptocurrency payments</a>** from many Blockchain networks, especially Bitcoin, Ethereum, Solana, and sell paid courses with cryptocurrencies on your WordPress site with the Fluent Forms plugin.
+CryptoPay offers a fully decentralized, non-custodial, and commission-free payment solution, directly integrated with Fluent Forms. Whether you're selling digital products, offering services, or collecting donations, you can now enable crypto payments in your forms with just a few clicks.
 
-What is CryptoPay?
+Supported cryptocurrencies include Bitcoin, Ethereum (and All EVM Networks), Solana, and many more—giving your users flexibility while keeping you in full control of your funds.
+
+### What is CryptoPay?
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3vaoFL4XG10" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-Review CryptoPay Lite: **<a href="https://wordpress.org/plugins/cryptopay-wc-lite/">Cryptocurrency payment gateway for Fluent Forms</a>**
+#### This plugin is an integration plugin. So basically you need to have the following two plugins.
 
-Review CryptoPay Premium: **<a href="https://beycanpress.com/cryptopay/?utm_source=wporg_readme&utm_medium=cryptopay_fluent_forms">Cryptocurrency payments for WooCommerce</a>**
+**<a href="https://wordpress.org/plugins/cryptopay-wc-lite/">Review CryptoPay Lite</a>**
 
-Review Fluent Forms: **<a href="https://wordpress.org/plugins/fluentform/">Fluent Forms</a>**
+**<a href="https://beycanpress.com/cryptopay/?utm_source=wporg_readme&utm_medium=cryptopay_fluent_forms">Review CryptoPay Premium</a>**
 
-See **<a href="https://cryptopay.beycanpress.net/" target="_blank">Demo</a>**
+**<a href="https://wordpress.org/plugins/fluentform">Review Fluent Forms</a>**
+
+**<a href="https://cryptopay.beycanpress.net/" target="_blank">See CryptoPay Demo</a>**
 
 = Privacy notices =
 
