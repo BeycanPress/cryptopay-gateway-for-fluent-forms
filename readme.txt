@@ -2,10 +2,10 @@
 Contributors: BeycanPress
 Tags: Bitcoin, Ethereum, Crypto, Payment, Fluent Forms
 Requires at least: 5.0
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 8.1
-Stable Tag: 1.0.1
-Version: 1.0.1
+Stable Tag: 1.0.2
+Version: 1.0.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -54,6 +54,9 @@ You can easily translate with Loco translate.
 3. Enjoy.
 
 == Changelog ==
+
+= 1.0.2 =
+* Fixed: _load_textdomain_just_in_time early call
 
 = 1.0.1 =
 * Fixed: Text domain warning.

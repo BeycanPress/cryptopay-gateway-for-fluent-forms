@@ -19,23 +19,25 @@ class Loader
             Helpers::registerIntegration('fluent_forms');
 
             // add transaction page
-            Helpers::createTransactionPage(
-                esc_html__('Fluent Forms Transactions', 'cryptopay-gateway-for-fluent-forms'),
-                'fluent_forms',
-                10,
-                [
-                    'orderId' => function ($tx) {
-                        return Helpers::run('view', 'components/link', [
-                            'url' => sprintf(admin_url('admin.php?page=fluent_forms&route=entries&form_id=%d#/entries/%d'), $tx->params->formId, $tx->orderId), // @phpcs:ignore
-                            'text' => sprintf(
-                                /* translators: %d: transaction id */
-                                esc_html__('View entry #%d', 'cryptopay-gateway-for-fluent-forms'),
-                                $tx->orderId
-                            )
-                        ]);
-                    }
-                ]
-            );
+            add_action('init', function (): void {
+                Helpers::createTransactionPage(
+                    esc_html__('Fluent Forms Transactions', 'cryptopay-gateway-for-fluent-forms'),
+                    'fluent_forms',
+                    9,
+                    [
+                        'orderId' => function ($tx) {
+                            return Helpers::run('view', 'components/link', [
+                                'url' => sprintf(admin_url('admin.php?page=fluent_forms&route=entries&form_id=%d#/entries/%d'), $tx->params->formId, $tx->orderId), // @phpcs:ignore
+                                'text' => sprintf(
+                                    /* translators: %d: transaction id */
+                                    esc_html__('View entry #%d', 'cryptopay-gateway-for-fluent-forms'),
+                                    $tx->orderId
+                                )
+                            ]);
+                        }
+                    ]
+                );
+            });
 
             if (Helpers::exists()) {
                 (new ProGateway())->init();

@@ -11,7 +11,7 @@ defined('ABSPATH') || exit;
 
 /**
  * Plugin Name: CryptoPay Gateway for Fluent Forms Pro
- * Version:     1.0.1
+ * Version:     1.0.2
  * Plugin URI:  https://beycanpress.com/cryptopay/
  * Description: Adds Cryptocurrency payment gateway (CryptoPay) for Fluent Forms.
  * Author:      BeycanPress LLC
@@ -21,7 +21,7 @@ defined('ABSPATH') || exit;
  * Text Domain: cryptopay-gateway-for-fluent-forms
  * Tags: Bitcoin, Ethereum, Crypto, Payment, Fluent Forms
  * Requires at least: 5.0
- * Tested up to: 6.7
+ * Tested up to: 6.8
  * Requires PHP: 8.1
  */
 
@@ -29,7 +29,7 @@ defined('ABSPATH') || exit;
 require_once __DIR__ . '/vendor/autoload.php';
 
 define('FLUENT_FORMS_CRYPTOPAY_FILE', __FILE__);
-define('FLUENT_FORMS_CRYPTOPAY_VERSION', '1.0.1');
+define('FLUENT_FORMS_CRYPTOPAY_VERSION', '1.0.2');
 define('FLUENT_FORMS_CRYPTOPAY_KEY', basename(__DIR__));
 define('FLUENT_FORMS_CRYPTOPAY_URL', plugin_dir_url(__FILE__));
 define('FLUENT_FORMS_CRYPTOPAY_DIR', plugin_dir_path(__FILE__));
